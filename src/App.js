@@ -1,34 +1,56 @@
 import React, { Component } from "react";
+import './App.css'
 
 // App: class based component
 class App extends Component {
   //js object
   state = {
-    name: 'alina',
-    age: 20,
-    designation: 'developer',
-    arrOfObjects: [{}, {}, {}]
+    user: [
+      { id: 1, name: 'Jose', position: 'IT', age: 30 },
+      { id: 1, name: 'John', position: 'Manager', age: 20 },
+      { id: 1, name: 'Erwin', position: 'Sales agent', age: 22 },
+      { id: 1, name: 'Ray', position: 'CSR', age: 45 },
+    ],
+    total: 1
   }
 
 
-  handleClick = () => {
+  handleIncr = () => {
     //to update a state
     this.setState({
-      age: 25
+      total: this.state.total + 1
     });
+  }
+
+  handleDesc=()=> {
+    this.setState({
+      total: this.state.total - 1
+    })
   }
 
   //
   render() {
+    console.log(this.state.user)
     return (
       //jsx-> js syntx extension
 
       //this is referring to App
-      <div>
-        <h2>Hello</h2>
-        <p>Hi</p>
-        My name is {this.state.name} and age is {this.state.age}, working as a {this.state.designation}.
-        <button onClick={this.handleClick}>Click</button>
+      <div className="container">
+        <h2>List of Users</h2>
+        <div>
+          <ol>
+            {
+              this.state.user.map(function(data, i) {
+                return <li key={i}>{data.name} - {data.position}</li>
+              })
+            }
+          </ol>
+        </div>
+       
+
+       <p>total value: <strong>{this.state.total}</strong></p> 
+        <button onClick={this.handleIncr}>Increment</button>
+        <button onClick={this.handleDesc}>Decrement</button>
       </div>
     )
   }
@@ -36,49 +58,3 @@ class App extends Component {
 
 
 export default App;
-
-{/* <button onclick="">Click</button> */ }
-
-// Diffing algo
-// reconcilation process
-
-//inheritance
-
-
-//js objects
-// var obj = {
-//   name: 'alina',
-//   age: 20,
-//   designation: 'developer',
-//   details: function () {
-
-//   }
-// }
-
-
-// ES6 Features:
-// let, const, arrow function, default function arguments, class, inheritance, spread operator, rest operator, array helper function(map, filter, find, forEach, some, every, reduce)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var person = {
-//   name: 'alina'
-// }
-
-
-// function add() {
-
-// }
