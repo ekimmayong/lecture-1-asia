@@ -14,7 +14,7 @@ class App extends Component {
     total: 1
   }
 
-
+  // Increase total by 1
   handleIncr = () => {
     //to update a state
     this.setState({
@@ -22,6 +22,7 @@ class App extends Component {
     });
   }
 
+  //Descrease total by 1
   handleDesc=()=> {
     this.setState({
       total: this.state.total - 1
@@ -48,7 +49,8 @@ class App extends Component {
         </div>
        
 
-       <p>total value: <strong>{this.state.total}</strong></p> 
+        <p>total value: <strong>{this.state.total}</strong></p> 
+
         <button onClick={this.handleIncr}>Increment</button>
         <button onClick={this.handleDesc}>Decrement</button>
       </div>
